@@ -1,0 +1,21 @@
+# Workflow name
+name: project-01
+# event >> trigger
+on: ["push"]
+
+# push:
+#   branches: [master]
+
+jobs:
+  # name
+  test_job:
+    # OS or Platform
+    runs-on: ubuntu-latest
+    # steps
+    steps:  # These steps helps in building and testing the code
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: python ./scripts/hello.py
+
